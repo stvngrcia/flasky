@@ -6,6 +6,7 @@ Flask-Moment
 Flask-SQLAlchemy
 Flask-Script
 Flask-WTF
+Flask-Login
 Jinja2
 Mako
 MarkupSafe
