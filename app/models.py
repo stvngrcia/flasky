@@ -16,7 +16,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(64), unique=True, index=True)
     role_id = db.Column(db.Integer, db.ForeignKey("roles.id"))
-    pasword_hash = db.Column(db.String(128))
+    password_hash = db.Column(db.String(128))
 
     def __repr__(self):
         return ("<user> %r" % self.user_name)
