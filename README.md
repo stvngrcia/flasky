@@ -1,2 +1,2 @@
 # flasky
-A social Blogging application based on Flask Web development book
+A social Blogging application based on O'Reilly book [Flask Web Development](http://www.flaskbook.com)
