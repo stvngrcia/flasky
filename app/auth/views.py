@@ -49,6 +49,18 @@ def register():
     return (render_template("auth/register.html", form=form))
 
 
+@auth.route("/confirm")
+@login_required
+def resend_confirmation():
+    token = current_user.generate_confirmation_token()
+    send_email(current_user.email,
+               "Confirm Your Flasky Account",
+               "auth/email/confirm", user=current_user, token=token)
+    flash("A new email has been send to your account")
+    return (redirect(url_for("main.index")))
+
+
+
 @auth.route("/confirm/<token>")
 @login_required
 def confirm(token):
@@ -69,11 +81,6 @@ def before_request():
                 and request.endpoint[:5] != 'auth.' \
                 and request.endpoint != 'static':
             return redirect(url_for('auth.unconfirmed'))
-# @auth.before_app_request
-# def before_request():
-#     if current_user.is_authenticated:
-#         if not current_user.confirmed and request.endpoint[:5] != "auth":
-#             return (redirect(url_for("auth.unconfirmed")))
 
 @auth.route("/unconfirmed")
 def unconfirmed():
