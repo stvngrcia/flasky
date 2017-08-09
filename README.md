@@ -9,10 +9,7 @@ Using python's virtual environment
 + `pip3 install -r requirements.txt`
 
 Create database
-+ `Python3`
-+ `>>> from app import db`
-+ `>>> from app.models import User`
-+ `>>> db.create_all()`
++ `Python3 manager create_db`
 
 Run dev server
 + `python3 manage.py runserver`
